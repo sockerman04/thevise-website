@@ -1,0 +1,13 @@
+[build]
+  command = "bun install && bun run build"
+  publish = ".next/standalone"
+
+[[plugins]]
+  package = "@netlify/plugin-nextjs"
+
+[build.environment]
+  NETLIFY_NEXT_PLUGIN_SKIP = "false"
+  NODE_VERSION = "18"
+
+[functions]
+  included_files = ["public/**"]
