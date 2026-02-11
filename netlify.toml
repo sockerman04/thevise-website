@@ -7,7 +7,7 @@
 
 [build.environment]
   NETLIFY_NEXT_PLUGIN_SKIP = "false"
-  NODE_VERSION = "18"
+  NODE_VERSION = "20.9.0"
 
 [functions]
   included_files = ["public/**"]
