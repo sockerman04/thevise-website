@@ -7,6 +7,17 @@ collections_config:
     name: The Vise Homepage
     icon:
     disable_url: false
+    documentation:
+      url: https://github.com/sockerman04/thevise-website.git
+      text:
+      icon: '360'
+    disable_add: false
+    disable_add_folder: false
+    disable_file_actions: false
+  skills:
+    path: skills
+    icon: skillet
+    disable_url: false
     disable_add: false
     disable_add_folder: false
     disable_file_actions: false
