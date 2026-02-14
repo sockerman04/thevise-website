@@ -1,5 +1,16 @@
 {
   "type": "Home",
+  "sectionOrder": [
+  "hero",
+  "burden",
+  "solution",
+  "features",
+  "howItWorks",
+  "problems",
+  "credibility",
+  "contact"
+],
+
   "nav": {
     "howItWorksLabel": "How It Works",
     "contactLabel": "Contact Us"
