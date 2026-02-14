@@ -1,4 +1,6 @@
 @import "tailwindcss";
+
+/* If your build fails on this line, delete it (see note below). */
 @import "tw-animate-css";
 
 @custom-variant dark (&:is(.dark *));
