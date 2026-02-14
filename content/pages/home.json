@@ -1,0 +1,27 @@
+{
+  "type": "Home",
+  "hero": {
+    "headline": "Headache relief, engineered.",
+    "subheadline": "Targeted compression for migraines, tension, cluster, and sinus-related headaches.",
+    "primaryButtonText": "Shop The Vise",
+    "primaryButtonHref": "/"
+  },
+  "sections": [
+    {
+      "id": "features",
+      "heading": "Designed for Relief",
+      "items": [
+        { "title": "Universal Fit", "text": "Adjustable frame fits most head sizes comfortably." },
+        { "title": "Targeted Pads", "text": "Slide pads to frontal, temporal, or cervical pain points." },
+        { "title": "Tension Control", "text": "Twist to dial pressure up or down." }
+      ]
+    },
+    {
+      "id": "cta",
+      "heading": "Get relief fast",
+      "text": "Try targeted compression you control.",
+      "buttonText": "Learn More",
+      "buttonHref": "/"
+    }
+  ]
+}
