@@ -5,6 +5,9 @@ export default defineStackbitConfig({
   ssgName: "nextjs",
   nodeVersion: "20",
 
+  // ✅ Critical: tells Netlify Create how to run your preview server
+  devCommand: "npm run dev",
+
   contentSources: [
     {
       name: "content",
@@ -18,15 +21,18 @@ export default defineStackbitConfig({
       name: "Home",
       type: "data",
       filePath: "src/content/pages/home.json",
+
+      // ✅ Critical: links this content to your homepage URL
+      urlPath: "/",
+
       fields: [
-        // ✅ DRAG/DROP SECTION ORDER (Step C)
+        // ✅ Drag/drop order of sections
         {
           name: "sectionOrder",
           type: "list",
           items: { type: "string" }
         },
 
-        // Existing editable fields
         {
           name: "nav",
           type: "object",
@@ -35,6 +41,7 @@ export default defineStackbitConfig({
             { name: "contactLabel", type: "string" }
           ]
         },
+
         {
           name: "hero",
           type: "object",
@@ -48,6 +55,7 @@ export default defineStackbitConfig({
             { name: "bgImage", type: "string" }
           ]
         },
+
         {
           name: "burden",
           type: "object",
@@ -92,6 +100,7 @@ export default defineStackbitConfig({
             }
           ]
         },
+
         {
           name: "contact",
           type: "object",
@@ -105,6 +114,7 @@ export default defineStackbitConfig({
             { name: "email", type: "string" }
           ]
         },
+
         {
           name: "footer",
           type: "object",
