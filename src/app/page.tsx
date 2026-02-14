@@ -1,14 +1,26 @@
-import home from '../content/pages/home.json'
-
-
 'use client'
 
 import { Button } from '@/components/ui/button'
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
 import { Badge } from '@/components/ui/badge'
 import { Separator } from '@/components/ui/separator'
-import { Activity, Shield, Target, Zap, Clock, Users, TrendingUp, Phone, Mail, FileText, CheckCircle2, Heart, Brain, AlertTriangle } from 'lucide-react'
+import {
+  Activity,
+  Shield,
+  Target,
+  Zap,
+  Users,
+  Phone,
+  Mail,
+  FileText,
+  CheckCircle2,
+  Brain,
+  AlertTriangle
+} from 'lucide-react'
 import { useEffect, useRef } from 'react'
+
+// ✅ Content file (Step 2)
+import home from '../content/pages/home.json'
 
 export default function Home() {
   const statsRef = useRef<HTMLDivElement>(null)
@@ -47,11 +59,7 @@ export default function Home() {
                 window.scrollTo({ top: 0, behavior: 'smooth' })
               }}
             >
-              <img
-                src="/logo.png"
-                alt="The Vise - Headache Relief Device"
-                className="h-16 w-auto"
-              />
+              <img src="/logo.png" alt="The Vise - Headache Relief Device" className="h-16 w-auto" />
             </a>
 
             {/* Right side - Navigation Buttons */}
@@ -66,7 +74,7 @@ export default function Home() {
                   }
                 }}
               >
-                How It Works
+                {home.nav.howItWorksLabel}
               </Button>
               <Button
                 className="bg-emerald-600 hover:bg-emerald-700 text-white"
@@ -77,7 +85,7 @@ export default function Home() {
                   }
                 }}
               >
-                Contact Us
+                {home.nav.contactLabel}
               </Button>
             </div>
           </div>
@@ -86,9 +94,9 @@ export default function Home() {
 
       {/* Hero Section */}
       <section className="relative overflow-hidden pt-20 pb-24 lg:pt-28 lg:pb-32">
-        {/* AI-Generated Background Image */}
+        {/* Background Image */}
         <img
-          src="/vise-header-bg.png"
+          src={home.hero.bgImage}
           alt="The Vise Device Background"
           className="absolute inset-0 w-full h-full object-cover opacity-70"
         />
@@ -99,18 +107,18 @@ export default function Home() {
         <div className="relative container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-4xl mx-auto text-center">
             <Badge className="mb-6 bg-emerald-600 hover:bg-emerald-700 text-white border-0 px-4 py-1.5 text-sm font-medium">
-              Patent Pending • Head Compression Device
+              {home.hero.badge}
             </Badge>
 
             <h1 className="text-5xl sm:text-6xl lg:text-7xl font-bold text-gray-900 mb-6 leading-tight">
-              The Future of
+              {home.hero.titleTop}
               <span className="block bg-gradient-to-r from-emerald-600 to-teal-600 bg-clip-text text-transparent mt-2">
-                Headache Relief
+                {home.hero.titleGradient}
               </span>
             </h1>
 
             <p className="text-xl sm:text-2xl text-gray-600 mb-8 leading-relaxed max-w-3xl mx-auto">
-              A revolutionary, non-pharmacological solution designed by a chiropractic expert. Natural, safe, and clinically inspired.
+              {home.hero.subtitle}
             </p>
 
             <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
@@ -125,9 +133,13 @@ export default function Home() {
                 }}
               >
                 <Activity className="mr-2 h-5 w-5" />
-                How It Works
+                {home.hero.primaryCta}
               </Button>
-              <Button size="lg" variant="outline" className="border-emerald-600 text-emerald-700 hover:bg-emerald-50 px-8 py-6 text-lg rounded-full"
+
+              <Button
+                size="lg"
+                variant="outline"
+                className="border-emerald-600 text-emerald-700 hover:bg-emerald-50 px-8 py-6 text-lg rounded-full"
                 onClick={() => {
                   const section = document.getElementById('contact')
                   if (section) {
@@ -136,7 +148,7 @@ export default function Home() {
                 }}
               >
                 <Mail className="mr-2 h-5 w-5" />
-                Contact Us
+                {home.hero.secondaryCta}
               </Button>
             </div>
           </div>
@@ -148,99 +160,79 @@ export default function Home() {
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <Badge className="mb-4 bg-gray-100 text-gray-700 hover:bg-gray-200 border-0">
-              The Need
+              {home.burden.badge}
             </Badge>
             <h2 className="text-4xl sm:text-5xl font-bold text-gray-900 mb-4">
-              The Global Burden of Headaches
+              {home.burden.heading}
             </h2>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              Millions suffer daily. Current solutions fall short. The Vise changes everything.
+              {home.burden.subheading}
             </p>
           </div>
 
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-            <Card className="border-l-4 border-l-emerald-500 hover:shadow-lg transition-shadow duration-300">
-              <CardHeader>
-                <CardTitle className="text-4xl font-bold text-emerald-600">1B+</CardTitle>
-                <CardDescription className="text-base">
-                  People worldwide suffer from migraines
-                </CardDescription>
-              </CardHeader>
-            </Card>
-
-            <Card className="border-l-4 border-l-teal-500 hover:shadow-lg transition-shadow duration-300">
-              <CardHeader>
-                <CardTitle className="text-4xl font-bold text-teal-600">$14B+</CardTitle>
-                <CardDescription className="text-base">
-                  Annual economic cost in the U.S. alone
-                </CardDescription>
-              </CardHeader>
-            </Card>
-
-            <Card className="border-l-4 border-l-emerald-500 hover:shadow-lg transition-shadow duration-300">
-              <CardHeader>
-                <CardTitle className="text-4xl font-bold text-emerald-600">157M+</CardTitle>
-                <CardDescription className="text-base">
-                  Workdays lost annually in the U.S.
-                </CardDescription>
-              </CardHeader>
-            </Card>
-
-            <Card className="border-l-4 border-l-teal-500 hover:shadow-lg transition-shadow duration-300">
-              <CardHeader>
-                <CardTitle className="text-4xl font-bold text-teal-600">75%</CardTitle>
-                <CardDescription className="text-base">
-                  Of migraine sufferers experience disability
-                </CardDescription>
-              </CardHeader>
-            </Card>
+            {home.burden.stats.map((s, i) => (
+              <Card
+                key={i}
+                className={`border-l-4 ${
+                  i % 2 === 0 ? 'border-l-emerald-500' : 'border-l-teal-500'
+                } hover:shadow-lg transition-shadow duration-300`}
+              >
+                <CardHeader>
+                  <CardTitle
+                    className={`text-4xl font-bold ${
+                      i % 2 === 0 ? 'text-emerald-600' : 'text-teal-600'
+                    }`}
+                  >
+                    {s.value}
+                  </CardTitle>
+                  <CardDescription className="text-base">{s.label}</CardDescription>
+                </CardHeader>
+              </Card>
+            ))}
           </div>
 
           <div className="mt-12 bg-gradient-to-r from-emerald-50 to-teal-50 rounded-2xl p-8 max-w-4xl mx-auto">
             <div className="flex items-baseline gap-4">
               <AlertTriangle className="h-7 w-7 text-emerald-600 flex-shrink-0" />
               <h3 className="text-xl font-semibold text-gray-900 mb-4">
-                The Consequence
+                {home.burden.consequence.title}
               </h3>
             </div>
             <div className="ml-11">
               <p className="text-gray-700 leading-relaxed mb-4">
-                Conventional headache relief is entirely pharmaceutical-based, creating a host of potential negative side effects.
+                {home.burden.consequence.intro}
               </p>
+
               <ul className="space-y-3">
-                <li className="flex items-start gap-3">
-                  <span className="text-emerald-600 mt-1">•</span>
-                  <span className="text-gray-700"><strong>Short-term effects:</strong> drowsiness, nausea, dizziness, and digestive issues</span>
-                </li>
-                <li className="flex items-start gap-3">
-                  <span className="text-emerald-600 mt-1">•</span>
-                  <span className="text-gray-700"><strong>Long-term effects:</strong> liver damage, kidney problems, gastrointestinal bleeding, and cardiovascular risks</span>
-                </li>
-                <li className="flex items-start gap-3">
-                  <span className="text-emerald-600 mt-1">•</span>
-                  <span className="text-gray-700"><strong>Addiction potential:</strong> dependency cycles that are difficult to break</span>
-                </li>
+                {home.burden.consequence.bullets.map((b, i) => (
+                  <li key={i} className="flex items-start gap-3">
+                    <span className="text-emerald-600 mt-1">•</span>
+                    <span className="text-gray-700">
+                      <strong>{b.title}:</strong> {b.text}
+                    </span>
+                  </li>
+                ))}
               </ul>
+
               <p className="text-gray-700 leading-relaxed mt-4">
-                There's a better way...
+                {home.burden.consequence.outro}
               </p>
             </div>
           </div>
         </div>
       </section>
 
-      {/* Solution Section */}
+      {/* Solution Section (left as-is for now) */}
       <section className="py-20 bg-gradient-to-br from-emerald-600 via-emerald-700 to-teal-700 text-white">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-4xl mx-auto text-center">
             <Badge className="mb-6 bg-white/20 hover:bg-white/30 border-0 text-white">
               Introducing
             </Badge>
-            <h2 className="text-4xl sm:text-5xl font-bold mb-6">
-              Meet The Vise
-            </h2>
+            <h2 className="text-4xl sm:text-5xl font-bold mb-6">Meet The Vise</h2>
             <p className="text-xl mb-12 text-emerald-50 leading-relaxed">
-              A revolutionary headgear device that applies precision compression points to relieve 
+              A revolutionary headgear device that applies precision compression points to relieve
               headaches naturally. Developed by a chiropractic expert specializing in cranial manipulation.
             </p>
 
@@ -251,7 +243,7 @@ export default function Home() {
                 </div>
                 <h3 className="text-xl font-semibold mb-2">Natural & Safe</h3>
                 <p className="text-emerald-50 leading-relaxed">
-                  Non-pharmacological approach with zero side effects or addiction risk. 
+                  Non-pharmacological approach with zero side effects or addiction risk.
                   Relief without compromise.
                 </p>
               </div>
@@ -262,7 +254,7 @@ export default function Home() {
                 </div>
                 <h3 className="text-xl font-semibold mb-2">Precision Targeted</h3>
                 <p className="text-emerald-50 leading-relaxed">
-                  Adjustable pressure pads slide along the frame to target specific headache 
+                  Adjustable pressure pads slide along the frame to target specific headache
                   locations with clinical precision.
                 </p>
               </div>
@@ -273,7 +265,7 @@ export default function Home() {
                 </div>
                 <h3 className="text-xl font-semibold mb-2">Instant Control</h3>
                 <p className="text-emerald-50 leading-relaxed">
-                  Twistable pads let users increase or decrease tension based on their 
+                  Twistable pads let users increase or decrease tension based on their
                   preferences for immediate, personalized relief.
                 </p>
               </div>
@@ -282,7 +274,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Features Section */}
+      {/* Features Section (left as-is for now) */}
       <section className="py-20 bg-white">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
@@ -305,7 +297,7 @@ export default function Home() {
                 </div>
                 <CardTitle className="text-2xl">Universal Fit Frame</CardTitle>
                 <CardDescription className="text-base mt-2">
-                  Two conjoining bars create an adjustable frame that rests comfortably on 
+                  Two conjoining bars create an adjustable frame that rests comfortably on
                   any head size. The hinge point allows customization for optimal fit and positioning.
                 </CardDescription>
               </CardHeader>
@@ -318,7 +310,7 @@ export default function Home() {
                 </div>
                 <CardTitle className="text-2xl">Slideable Pressure Pads</CardTitle>
                 <CardDescription className="text-base mt-2">
-                  Modifiable pads can be positioned anywhere along the frame to target 
+                  Modifiable pads can be positioned anywhere along the frame to target
                   specific areas—frontal, temporal, cervical, or wherever pain strikes.
                 </CardDescription>
               </CardHeader>
@@ -331,7 +323,7 @@ export default function Home() {
                 </div>
                 <CardTitle className="text-2xl">Twistable Tension Control</CardTitle>
                 <CardDescription className="text-base mt-2">
-                  Manually adjustable pressure lets users find their perfect relief level. 
+                  Manually adjustable pressure lets users find their perfect relief level.
                   Increase or decrease tension based on individual needs and preferences.
                 </CardDescription>
               </CardHeader>
@@ -344,7 +336,7 @@ export default function Home() {
                 </div>
                 <CardTitle className="text-2xl">Multi-Headache Support</CardTitle>
                 <CardDescription className="text-base mt-2">
-                  Addresses chronic migraines, tension headaches, cluster headaches, 
+                  Addresses chronic migraines, tension headaches, cluster headaches,
                   cervicogenic headaches, and even sinus headaches with one device.
                 </CardDescription>
               </CardHeader>
@@ -353,7 +345,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* How It Works */}
+      {/* How It Works (left as-is for now) */}
       <section id="how-it-works" className="py-20 bg-gradient-to-b from-gray-50 to-white">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
@@ -369,19 +361,17 @@ export default function Home() {
           </div>
 
           <div className="max-w-6xl mx-auto">
-            {/* Step 1 - Image 1 */}
+            {/* Step 1 */}
             <div className="mb-16">
               <div className="flex gap-6 items-start">
                 <div className="flex-shrink-0 w-12 h-12 bg-emerald-600 rounded-full flex items-center justify-center text-white font-bold text-lg">
                   1
                 </div>
                 <div className="flex-1">
-                  <h3 className="text-2xl font-semibold text-gray-900 mb-2">
-                    Apply the Headgear
-                  </h3>
+                  <h3 className="text-2xl font-semibold text-gray-900 mb-2">Apply the Headgear</h3>
                   <p className="text-gray-700 leading-relaxed mb-4">
-                    Place the lightweight frame on your head. The universal design ensures a comfortable 
-                    fit for all head sizes and shapes. The sagittal bar provides stability while allowing 
+                    Place the lightweight frame on your head. The universal design ensures a comfortable
+                    fit for all head sizes and shapes. The sagittal bar provides stability while allowing
                     precise positioning of pressure points.
                   </p>
                 </div>
@@ -395,19 +385,17 @@ export default function Home() {
               </div>
             </div>
 
-            {/* Step 2 - Image 2 */}
+            {/* Step 2 */}
             <div className="mb-16">
               <div className="flex gap-6 items-start">
                 <div className="flex-shrink-0 w-12 h-12 bg-emerald-600 rounded-full flex items-center justify-center text-white font-bold text-lg">
                   2
                 </div>
                 <div className="flex-1">
-                  <h3 className="text-2xl font-semibold text-gray-900 mb-2">
-                    Position Pressure Pads
-                  </h3>
+                  <h3 className="text-2xl font-semibold text-gray-900 mb-2">Position Pressure Pads</h3>
                   <p className="text-gray-700 leading-relaxed mb-4">
-                    Slide the pressure pads along the frame to target your specific headache location. 
-                    Frontal for sinus pressure, temporal for tension headaches, or cervical for 
+                    Slide the pressure pads along the frame to target your specific headache location.
+                    Frontal for sinus pressure, temporal for tension headaches, or cervical for
                     cervicogenic pain—customize to your symptoms.
                   </p>
                 </div>
@@ -421,19 +409,17 @@ export default function Home() {
               </div>
             </div>
 
-            {/* Step 3 - Image 3 */}
+            {/* Step 3 */}
             <div className="mb-16">
               <div className="flex gap-6 items-start">
                 <div className="flex-shrink-0 w-12 h-12 bg-emerald-600 rounded-full flex items-center justify-center text-white font-bold text-lg">
                   3
                 </div>
                 <div className="flex-1">
-                  <h3 className="text-2xl font-semibold text-gray-900 mb-2">
-                    Adjust to Your Preference
-                  </h3>
+                  <h3 className="text-2xl font-semibold text-gray-900 mb-2">Adjust to Your Preference</h3>
                   <p className="text-gray-700 leading-relaxed mb-4">
-                    Twist the pads to increase or decrease tension. Find your optimal pressure level 
-                    for relief. The vise-like effect creates counter-pressure, mimicking the therapeutic 
+                    Twist the pads to increase or decrease tension. Find your optimal pressure level
+                    for relief. The vise-like effect creates counter-pressure, mimicking the therapeutic
                     techniques used in chiropractic settings.
                   </p>
                 </div>
@@ -447,28 +433,25 @@ export default function Home() {
               </div>
             </div>
 
-            {/* Step 4 - Text only */}
+            {/* Step 4 */}
             <div className="flex gap-6 items-start">
               <div className="flex-shrink-0 w-12 h-12 bg-emerald-600 rounded-full flex items-center justify-center text-white font-bold text-lg">
                 4
               </div>
               <div className="flex-1">
-                <h3 className="text-2xl font-semibold text-gray-900 mb-2">
-                  Experience Relief
-                </h3>
+                <h3 className="text-2xl font-semibold text-gray-900 mb-2">Experience Relief</h3>
                 <p className="text-gray-700 leading-relaxed">
-                  Feel tension melt away as targeted compression reduces pain intensity. 
-                  No waiting for medication to kick in—immediate, controllable relief that you 
+                  Feel tension melt away as targeted compression reduces pain intensity.
+                  No waiting for medication to kick in—immediate, controllable relief that you
                   can repeat as needed, anywhere, anytime.
                 </p>
               </div>
             </div>
           </div>
-
         </div>
       </section>
 
-      {/* Problems Solved */}
+      {/* Problems Solved (left as-is for now) */}
       <section className="py-20 bg-white">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
@@ -543,7 +526,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Patent & Credibility */}
+      {/* Patent & Credibility (left as-is for now) */}
       <section className="py-20 bg-gradient-to-br from-gray-900 to-gray-800 text-white">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-4xl mx-auto text-center">
@@ -551,11 +534,9 @@ export default function Home() {
               <FileText className="w-4 h-4 mr-2" />
               Verified Innovation
             </Badge>
-            
-            <h2 className="text-4xl sm:text-5xl font-bold mb-6">
-              Built on Expertise
-            </h2>
-            
+
+            <h2 className="text-4xl sm:text-5xl font-bold mb-6">Built on Expertise</h2>
+
             <div className="grid md:grid-cols-2 gap-8 text-left mt-12">
               <Card className="bg-white/5 backdrop-blur-sm border-white/10 text-white">
                 <CardHeader>
@@ -564,7 +545,7 @@ export default function Home() {
                   </div>
                   <CardTitle className="text-2xl">Patent Pending, Product Conviction</CardTitle>
                   <CardDescription className="text-gray-300 text-base mt-2">
-                    The Vise's innovative design is protected by pending patents, ensuring 
+                    The Vise&apos;s innovative design is protected by pending patents, ensuring
                     proprietary technology and market exclusivity.
                   </CardDescription>
                 </CardHeader>
@@ -586,8 +567,8 @@ export default function Home() {
             <div className="mt-12 bg-white/5 rounded-2xl p-8">
               <h3 className="text-2xl font-semibold mb-4">Market Potential</h3>
               <p className="text-gray-300 leading-relaxed text-lg">
-                The Vise has the potential to become the top non-pharmacological headache relief 
-                alternative on the market. With a massive addressable market of chronic headache 
+                The Vise has the potential to become the top non-pharmacological headache relief
+                alternative on the market. With a massive addressable market of chronic headache
                 sufferers seeking safer solutions, the investment opportunity is exceptional.
               </p>
             </div>
@@ -600,42 +581,38 @@ export default function Home() {
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-3xl mx-auto text-center">
             <Badge className="mb-6 bg-emerald-100 text-emerald-700 hover:bg-emerald-200 border-0">
-              Get in Touch
+              {home.contact.badge}
             </Badge>
 
             <h2 className="text-4xl sm:text-5xl font-bold text-gray-900 mb-4">
-              Join the Revolution
+              {home.contact.heading}
             </h2>
-            
-            <p className="text-xl text-gray-600 mb-12">
-              Be part of bringing life-changing headache relief to millions. We're actively 
-              seeking investment partners to scale production and reach global markets.
-            </p>
+
+            <p className="text-xl text-gray-600 mb-12">{home.contact.subheading}</p>
 
             <Card className="border-2 border-emerald-200 hover:border-emerald-400 transition-colors duration-300">
               <CardHeader>
                 <div className="w-16 h-16 bg-emerald-100 rounded-full flex items-center justify-center mx-auto mb-6">
                   <Phone className="h-8 w-8 text-emerald-600" />
                 </div>
-                <CardTitle className="text-3xl">Contact Us</CardTitle>
+                <CardTitle className="text-3xl">{home.contact.title}</CardTitle>
                 <CardDescription className="text-xl text-gray-600 mt-4">
-                  Investment Inquiries
+                  {home.contact.subtitle}
                 </CardDescription>
               </CardHeader>
+
               <CardContent className="space-y-4">
                 <div className="flex items-center justify-center gap-3">
                   <Phone className="h-5 w-5 text-emerald-600" />
-                  <span className="text-3xl font-bold text-gray-900">1-509-430-9791</span>
+                  <span className="text-3xl font-bold text-gray-900">{home.contact.phone}</span>
                 </div>
+
                 <Separator className="max-w-xs mx-auto" />
+
                 <div className="flex items-center justify-center gap-3">
-                  <img
-                    src="/logo.png"
-                    alt="The Vise"
-                    className="h-12 w-auto mb-2"
-                  />
+                  <img src="/logo.png" alt="The Vise" className="h-12 w-auto mb-2" />
                   <Mail className="h-5 w-5 text-emerald-600" />
-                  <span className="text-gray-600">drkyle@iceclinics.com</span>
+                  <span className="text-gray-600">{home.contact.email}</span>
                 </div>
               </CardContent>
             </Card>
@@ -648,52 +625,54 @@ export default function Home() {
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid md:grid-cols-3 gap-8">
             <div>
-              <h3 className="text-2xl font-bold mb-4">The Vise</h3>
-              <p className="text-gray-400 leading-relaxed">
-                Revolutionary headache relief device.
-                Natural, safe, and effective.
-              </p>
+              <h3 className="text-2xl font-bold mb-4">{home.footer.title}</h3>
+              <p className="text-gray-400 leading-relaxed">{home.footer.description}</p>
             </div>
-            
+
             <div>
               <h4 className="font-semibold mb-4">Quick Links</h4>
               <ul className="space-y-2 text-gray-400">
-                <li><a href="#about" className="hover:text-white transition-colors">About</a></li>
-                <li><a href="#features" className="hover:text-white transition-colors">Features</a></li>
-                <li><a href="#contact" className="hover:text-white transition-colors">Contact</a></li>
-
+                <li>
+                  <a href="#about" className="hover:text-white transition-colors">
+                    About
+                  </a>
+                </li>
+                <li>
+                  <a href="#features" className="hover:text-white transition-colors">
+                    Features
+                  </a>
+                </li>
+                <li>
+                  <a href="#contact" className="hover:text-white transition-colors">
+                    Contact
+                  </a>
+                </li>
               </ul>
             </div>
-            
+
             <div>
               <h4 className="font-semibold mb-4">Contact</h4>
               <ul className="space-y-2 text-gray-400">
                 <li className="flex items-center gap-2">
                   <Phone className="h-4 w-4" />
-                  1-509-430-9791
+                  {home.contact.phone}
                 </li>
                 <li className="flex items-center gap-2">
                   <Mail className="h-4 w-4" />
-                  drkyle@iceclinics.com
+                  {home.contact.email}
                 </li>
               </ul>
               <div className="mt-4">
-                <Badge className="bg-emerald-600/20 text-emerald-400 border-0">
-                  Patent Pending
-                </Badge>
+                <Badge className="bg-emerald-600/20 text-emerald-400 border-0">Patent Pending</Badge>
               </div>
             </div>
           </div>
-          
+
           <Separator className="my-8 bg-gray-800" />
-          
+
           <div className="flex flex-col md:flex-row justify-between items-center gap-4">
-            <p className="text-gray-400 text-sm">
-              © 2025 The Vise. All rights reserved.
-            </p>
-            <p className="text-gray-400 text-sm">
-              Designed by Kyle Bryant • Chiropractic Innovation
-            </p>
+            <p className="text-gray-400 text-sm">{home.footer.copyright}</p>
+            <p className="text-gray-400 text-sm">{home.footer.credit}</p>
           </div>
         </div>
       </footer>
