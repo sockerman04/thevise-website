@@ -1,3 +1,6 @@
+import home from '../content/pages/home.json'
+
+
 'use client'
 
 import { Button } from '@/components/ui/button'
