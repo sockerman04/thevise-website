@@ -5,8 +5,12 @@ export default defineStackbitConfig({
   ssgName: "nextjs",
   nodeVersion: "20",
 
-  // ✅ Critical: tells Netlify Create how to run your preview server
-  devCommand: "npm run dev",
+  // ✅ Match your Netlify build tooling (Bun)
+  // This is the #1 fix when Create loads but sidebar is partially disabled.
+  devCommand: "bun run dev",
+
+  // Optional but helpful if Create supports it in your environment:
+  // installCommand: "bun install",
 
   contentSources: [
     {
@@ -21,12 +25,9 @@ export default defineStackbitConfig({
       name: "Home",
       type: "data",
       filePath: "src/content/pages/home.json",
-
-      // ✅ Critical: links this content to your homepage URL
       urlPath: "/",
 
       fields: [
-        // ✅ Drag/drop order of sections
         {
           name: "sectionOrder",
           type: "list",
