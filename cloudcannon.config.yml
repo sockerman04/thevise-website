@@ -4,7 +4,8 @@ paths:
 collections_config:
   pages:
     path: ''
-    icon: wysiwyg
+    name: The Vise Homepage
+    icon:
     disable_url: false
     disable_add: false
     disable_add_folder: false
