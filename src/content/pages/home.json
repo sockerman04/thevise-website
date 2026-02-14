@@ -1,0 +1,52 @@
+{
+  "type": "Home",
+  "nav": {
+    "howItWorksLabel": "How It Works",
+    "contactLabel": "Contact Us"
+  },
+  "hero": {
+    "badge": "Patent Pending • Head Compression Device",
+    "titleTop": "The Future of",
+    "titleGradient": "Headache Relief",
+    "subtitle": "A revolutionary, non-pharmacological solution designed by a chiropractic expert. Natural, safe, and clinically inspired.",
+    "primaryCta": "How It Works",
+    "secondaryCta": "Contact Us",
+    "bgImage": "/vise-header-bg.png"
+  },
+  "burden": {
+    "badge": "The Need",
+    "heading": "The Global Burden of Headaches",
+    "subheading": "Millions suffer daily. Current solutions fall short. The Vise changes everything.",
+    "stats": [
+      { "value": "1B+", "label": "People worldwide suffer from migraines" },
+      { "value": "$14B+", "label": "Annual economic cost in the U.S. alone" },
+      { "value": "157M+", "label": "Workdays lost annually in the U.S." },
+      { "value": "75%", "label": "Of migraine sufferers experience disability" }
+    ],
+    "consequence": {
+      "title": "The Consequence",
+      "intro": "Conventional headache relief is entirely pharmaceutical-based, creating a host of potential negative side effects.",
+      "bullets": [
+        { "title": "Short-term effects", "text": "drowsiness, nausea, dizziness, and digestive issues" },
+        { "title": "Long-term effects", "text": "liver damage, kidney problems, gastrointestinal bleeding, and cardiovascular risks" },
+        { "title": "Addiction potential", "text": "dependency cycles that are difficult to break" }
+      ],
+      "outro": "There's a better way..."
+    }
+  },
+  "contact": {
+    "badge": "Get in Touch",
+    "heading": "Join the Revolution",
+    "subheading": "Be part of bringing life-changing headache relief to millions. We're actively seeking investment partners to scale production and reach global markets.",
+    "title": "Contact Us",
+    "subtitle": "Investment Inquiries",
+    "phone": "1-509-430-9791",
+    "email": "drkyle@iceclinics.com"
+  },
+  "footer": {
+    "title": "The Vise",
+    "description": "Revolutionary headache relief device. Natural, safe, and effective.",
+    "copyright": "© 2025 The Vise. All rights reserved.",
+    "credit": "Designed by Kyle Bryant • Chiropractic Innovation"
+  }
+}
