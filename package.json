@@ -1,29 +1,25 @@
 {
   "name": "thevise-website",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "private": true,
-
   "scripts": {
     "dev": "next dev",
     "build": "next build && cp -r .next/static .next/standalone/.next/ && cp -r public .next/standalone/",
     "start": "next start",
     "lint": "next lint"
   },
-
   "engines": {
     "node": ">=20.9.0"
   },
-
   "dependencies": {
+    "class-variance-authority": "^0.7.0",
+    "clsx": "^2.1.1",
+    "lucide-react": "^0.395.0",
     "next": "16.1.6",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
-    "lucide-react": "^0.395.0",
-    "class-variance-authority": "^0.7.0",
-    "clsx": "^2.1.1",
     "tailwind-merge": "^2.3.0"
   },
-
   "devDependencies": {
     "@types/node": "^20.14.10",
     "@types/react": "^18.3.3",
